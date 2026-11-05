@@ -467,7 +467,6 @@ body.night .scroll-hint{background:linear-gradient(100deg,#f3c96f,#ffe9b0 40%,#f
     <p id="resultFrom"></p>
     <button class="btn" id="shareWish">SHARE ON WHATSAPP ↗</button>
     <button class="btn secondary" id="copyLink">COPY LINK 🔗</button>
-    <button class="btn secondary" id="shareInstagram">SHARE ON INSTAGRAM 📸</button>
     <button class="btn secondary" id="copyWish">COPY MESSAGE</button>
    </div>
   </div>
@@ -673,11 +672,15 @@ ${d.s}`;
   $("overlayMessage").textContent=message.split("\n\n").slice(1,2)[0] || "May your home be filled with prosperity, peace and happiness.";
   $("overlayFrom").textContent=`With love, from ${d.s}  •  Scroll down to enjoy the Diwali`;
   $("sharedOverlay").classList.add("show");
-  /* Forwarding, made normal: the receiver becomes the new sender, the
-     "who next?" box is empty, and the old result is hidden — so they can
-     create a fresh wish for someone else exactly like you did. */
-  $("sender").value=d.r;$("receiver").value="";
+  /* BUG FIX: a receiver forwarding the wish must start with EMPTY name boxes.
+     Earlier the form was prefilled — with the original sender's name in the
+     version on GitHub, and later with the receiver's name — so "YOUR NAME"
+     looked like someone else's name. Now both boxes are blank: the receiver
+     types their own name fresh, exactly like a first-time visitor. */
+  $("sender").value="";$("receiver").value="";
+  $("sender").placeholder="Enter your name";
   $("receiver").placeholder="Who do you want to wish next?";
+  senderName="";receiverName="";
   $("result").classList.remove("show");
  }catch(e){console.warn("This Diwali greeting link could not be read.",e);}
 }
@@ -799,18 +802,9 @@ if(copyLinkBtn) copyLinkBtn.onclick=async()=>{
   if(!senderName||!receiverName){toast("Create your personal wish first");return;}
   await copy(getInstagramMessage()); toast("Wish + link copied! Paste it anywhere 🔗");
 };
-const igBtn=$("shareInstagram");
-if(igBtn) igBtn.onclick=async()=>{
-  if(!senderName||!receiverName){toast("Create your personal wish first");return;}
-  await copy(getInstagramMessage());
-  toast("Wish copied! DM inbox khul raha hai — kisi ko choose karke paste karo 📸");
-  /* FIX: pehle https://www.instagram.com/ khulta tha — woh hamesha home hi kholta hai.
-     /direct/inbox/ DM inbox kholta hai. Instagram kisi website ko kisi ek
-     specific person ka DM directly kholne nahi deta (uske liye username
-     chahiye hota hai, jo yahan nahi hai), isliye inbox tak hi ja sakte hain —
-     wahan person choose karo, paste karo, send. */
-  setTimeout(()=>window.open("https://www.instagram.com/direct/inbox/","_blank"), 600);
-};
+/* Instagram direct button removed (user's call): COPY LINK is enough — it
+   already copies wish + link together, the user pastes it in the DM
+   themselves. No Instagram button, no auto-open. */
 /* G. The living night sky — 90 uneven twinkling stars + 5 slow sky lanterns.
    Random sizes / delays on purpose: a real sky is never perfectly even. */
 (function(){
