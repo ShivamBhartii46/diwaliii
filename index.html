@@ -6,7 +6,6 @@
 <meta name="theme-color" content="#ffedd0">
 <title>Diwali — A Night of Light | शुभ दीपावली</title>
 <meta name="description" content="🪔 Happy Diwali! A beautiful, personal Diwali greeting filled with light, blessings, fireworks and love. Open it, make a wish, and share the light with someone special.">
-<!-- ★ NEW: WhatsApp / Google preview — this is what makes a link look famous when shared -->
 <meta property="og:type" content="website">
 <meta property="og:title" content="🪔 Happy Diwali — A Night of Light">
 <meta property="og:description" content="Someone sent you a little Diwali surprise ✨ Open it, light a diya, make a wish and pass the light forward.">
@@ -22,9 +21,9 @@
 body{overflow:hidden;background:var(--paper);-webkit-tap-highlight-color:transparent}
 button,input{font:inherit}button{cursor:pointer}
 #app{position:relative;width:100%;height:100dvh;overflow:hidden;background:radial-gradient(ellipse at 50% 15%,#fffdf7,#fff1dc 70%,#f8dfbd)}
-.screen{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;padding:30px 20px;opacity:0;visibility:hidden;pointer-events:none;transform:translateY(18px);transition:opacity .75s ease,transform .75s ease,visibility .75s}
+.screen{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;padding:30px 20px;opacity:0;visibility:hidden;pointer-events:none;transform:translateY(18px);transition:opacity .75s ease,transform .75s ease,visibility .75s;overflow-y:auto;overflow-x:hidden;-webkit-overflow-scrolling:touch;scrollbar-width:thin}
 .screen.active{opacity:1;visibility:visible;pointer-events:auto;transform:translateY(0)}
-.screen-inner{position:relative;z-index:5;width:min(680px,100%);text-align:center;display:flex;align-items:center;flex-direction:column;gap:17px}
+.screen-inner{position:relative;z-index:5;width:min(680px,100%);text-align:center;display:flex;align-items:center;flex-direction:column;gap:17px;margin:auto;padding:12px 0 26px}
 .eyebrow{font:600 11px "Cinzel",serif;letter-spacing:4px;color:#b47b31;text-transform:uppercase}
 h1,h2,h3{font-family:"Playfair Display",serif;font-weight:500;margin:0}
 h1{font:500 clamp(38px,8vw,78px) "Cinzel",serif;line-height:1.15;color:#88463c}
@@ -115,42 +114,23 @@ input:focus{border-color:#c58e3f;box-shadow:0 0 0 3px rgba(197,142,63,.12)}
 .step i.on{background:#c28a3e}
 @media(max-height:700px){.screen{padding:18px}.screen-inner{gap:11px}.gate-scene{height:48vh;min-height:260px}.deity{width:min(36%,150px)}}
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition-duration:.01ms!important}}
-
-/* ============ ★ ENHANCED ADDITIONS — all new, original code untouched above ============ */
-/* 1. Marigold toran — hangs from the top on every screen, sways gently */
-.toran{position:absolute;top:0;left:0;right:0;z-index:8;display:flex;justify-content:center;gap:2px;pointer-events:none;font-size:clamp(20px,4vw,30px);line-height:1;padding-top:2px;filter:drop-shadow(0 4px 8px rgba(180,110,30,.25))}
-.toran span{display:inline-block;animation:sway 3.2s ease-in-out infinite}
-.toran span:nth-child(even){animation-delay:.6s}
-.toran span:nth-child(3n){animation-delay:1.1s}
-@keyframes sway{50%{transform:translateY(4px) rotate(6deg)}}
-/* 2. Slow-spinning rangoli mandala behind the intro — traditional, dreamy */
 .mandala-bg{position:absolute;top:50%;left:50%;width:min(92vmin,560px);height:min(92vmin,560px);transform:translate(-50%,-50%);z-index:1;pointer-events:none;opacity:.16;font-size:min(92vmin,560px);line-height:1;display:flex;align-items:center;justify-content:center;animation:spinSlow 90s linear infinite}
 @keyframes spinSlow{to{transform:translate(-50%,-50%) rotate(360deg)}}
-/* 3. Shimmering gold title */
 h1.shimmer{background:linear-gradient(100deg,#88463c 20%,#d69b35 38%,#fff0a8 50%,#d69b35 62%,#88463c 80%);background-size:200% auto;-webkit-background-clip:text;background-clip:text;color:transparent;animation:shine 4s linear infinite}
 @keyframes shine{to{background-position:200% center}}
 .hindi-title{font-family:"Yatra One","Tiro Devanagari Hindi",serif;font-size:clamp(26px,5vw,40px);color:#b4532a;letter-spacing:1px;text-shadow:0 2px 14px rgba(230,160,60,.45)}
-/* 4. Shloka */
 .shloka{font-family:"Tiro Devanagari Hindi",serif;font-size:17px;color:#8a5a2e;line-height:1.5}
 .shloka small{display:block;font-family:"Playfair Display",serif;font-style:italic;font-size:13px;color:#a07a5e;margin-top:2px}
-/* 5. Live countdown to Diwali — 8 Nov 2026 */
 .countdown{display:flex;gap:8px;justify-content:center;flex-wrap:wrap}
 .countdown .cd{background:rgba(255,255,255,.75);border:1px solid #e8c88d;border-radius:14px;min-width:62px;padding:9px 6px;box-shadow:0 6px 18px rgba(115,65,30,.10)}
 .countdown .cd b{display:block;font:700 22px "Cinzel",serif;color:#8e3c38}
 .countdown .cd span{font-size:10px;letter-spacing:2px;color:#a07a5e;text-transform:uppercase}
 .countdown-label{font:600 10px "Cinzel",serif;letter-spacing:3px;color:#b47b31}
-/* 6. Top corner buttons: Night mode + Hindi */
 .corner-btn{position:fixed;top:14px;z-index:25;height:42px;min-width:42px;padding:0 12px;border-radius:50px;border:1px solid #d8b77e;background:rgba(255,249,236,.92);color:#9b6339;font-weight:700;font-size:14px;box-shadow:0 5px 16px rgba(115,65,30,.14)}
 #nightToggle{right:16px}
 #langToggle{left:16px;font-family:"Tiro Devanagari Hindi",serif}
-/* 7. NIGHT IS THE DEFAULT — a real Diwali night, not a flat dark mode.
-   Deep indigo sky, warm maroon horizon where the diyas live, amber glow
-   rising from the bottom like light on a rooftop. Day mode is the option. */
 #app{background:radial-gradient(120% 90% at 50% 0%,#241547 0%,#170d33 42%,#1e0f2e 62%,#3a1420 82%,#120a22 100%)}
-#app:after{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:
-  radial-gradient(ellipse 70% 28% at 50% 108%,rgba(255,166,48,.34),rgba(255,120,40,.10) 55%,transparent 75%),
-  radial-gradient(ellipse 45% 22% at 18% -6%,rgba(190,170,255,.20),transparent 70%),
-  radial-gradient(ellipse 38% 20% at 84% 8%,rgba(255,214,140,.14),transparent 70%)}
+#app:after{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:radial-gradient(ellipse 70% 28% at 50% 108%,rgba(255,166,48,.34),rgba(255,120,40,.10) 55%,transparent 75%),radial-gradient(ellipse 45% 22% at 18% -6%,rgba(190,170,255,.20),transparent 70%),radial-gradient(ellipse 38% 20% at 84% 8%,rgba(255,214,140,.14),transparent 70%)}
 body.night .screen,body.night #intro,body.night #gateScreen,body.night #reveal,body.night #blessing,body.night #nightSky,body.night #personal{background:transparent}
 body.night h1,body.night h2{color:#ffe9b0}
 body.night h1.shimmer{background:linear-gradient(100deg,#ffe9b0 15%,#f3c96f 38%,#fff6c9 50%,#ff9e4d 62%,#ffe9b0 85%);background-size:200% auto;-webkit-background-clip:text;background-clip:text;color:transparent;text-shadow:0 0 42px rgba(255,170,60,.22)}
@@ -181,19 +161,11 @@ body.night .corner-btn{background:rgba(28,16,54,.88);color:#ffd98a;border-color:
 body.night #music{background:rgba(28,16,54,.88);color:#ffd98a;border-color:rgba(233,190,105,.55)}
 body.night .step i{background:#4a3566} body.night .step i.on{background:#e8b45a}
 body.night .mandala-bg{opacity:.13;color:#ffcf7d}
-body.night .toran{filter:drop-shadow(0 0 12px rgba(255,160,50,.35))}
-/* Day mode — warm, golden, alive. NOT plain cream: a soft morning sun at the
-   top, honey light in the middle, and a warm diya-glow rising from the bottom. */
-body:not(.night) #app{background:
-  radial-gradient(90% 55% at 50% -8%,#ffe9a8 0%,#ffd98a 28%,transparent 62%),
-  radial-gradient(120% 90% at 50% 0%,#fffaf0 0%,#ffefd2 45%,#ffe3b0 78%,#ffcf8a 100%)}
-body:not(.night) #app:after{background:
-  radial-gradient(ellipse 75% 30% at 50% 108%,rgba(255,150,40,.38),rgba(255,120,40,.12) 55%,transparent 75%),
-  radial-gradient(ellipse 50% 26% at 50% -4%,rgba(255,255,255,.75),transparent 70%)}
+body:not(.night) #app{background:radial-gradient(90% 55% at 50% -8%,#ffe9a8 0%,#ffd98a 28%,transparent 62%),radial-gradient(120% 90% at 50% 0%,#fffaf0 0%,#ffefd2 45%,#ffe3b0 78%,#ffcf8a 100%)}
+body:not(.night) #app:after{background:radial-gradient(ellipse 75% 30% at 50% 108%,rgba(255,150,40,.38),rgba(255,120,40,.12) 55%,transparent 75%),radial-gradient(ellipse 50% 26% at 50% -4%,rgba(255,255,255,.75),transparent 70%)}
 body:not(.night) .stars,body:not(.night) .lanterns,body:not(.night) .shooting{display:none!important}
 body:not(.night) .mandala-bg{opacity:.10;color:#d69b35}
 body:not(.night) .hero-diya:after{background:radial-gradient(circle,rgba(255,190,80,.65),rgba(255,150,40,.20) 55%,transparent 72%)}
-/* 8. Light-a-Diya — tap to light, the most shareable moment */
 .light-diyas{width:min(520px,100%);padding:16px 14px 14px;border:1px dashed #d9a54e;border-radius:18px;background:rgba(255,250,240,.65)}
 .light-diyas p{margin:0 0 10px;font-size:13px;color:#8b6752}
 .diya-row{display:flex;justify-content:center;gap:10px}
@@ -201,13 +173,9 @@ body:not(.night) .hero-diya:after{background:radial-gradient(circle,rgba(255,190
 .diya-btn.lit{filter:none;transform:translateY(-4px) scale(1.12);text-shadow:0 0 22px #ffb62e,0 0 38px #ff8a2e;animation:flameFlicker 1.1s ease-in-out infinite}
 @keyframes flameFlicker{50%{transform:translateY(-5px) scale(1.16)}}
 #diyaCount{font:600 11px "Cinzel",serif;letter-spacing:2px;color:#ad7837;margin:10px 0 0!important}
-/* 9. Corner mandala frame on cards */
 .night-card:before,.blessing-card:before{content:"✦";position:absolute;top:10px;right:14px;color:#d9a54e;font-size:15px;opacity:.8}
-/* 10. Footer credit */
 .credit{font-size:11px;letter-spacing:1px;color:#b89a7a;margin-top:2px}
 .credit b{color:#a66e35}
-/* 11. The sky, alive — twinkling stars, a shooting star, sky lanterns rising.
-   These are what stop it looking flat / AI-made: nothing is perfectly even. */
 .stars{position:absolute;inset:0;z-index:1;pointer-events:none;overflow:hidden}
 .star{position:absolute;border-radius:50%;background:#fff8dc;animation:twinkle 2.8s ease-in-out infinite}
 @keyframes twinkle{0%,100%{opacity:.18;transform:scale(.7)}50%{opacity:1;transform:scale(1.25);box-shadow:0 0 8px #ffe9a8}}
@@ -216,21 +184,14 @@ body:not(.night) .hero-diya:after{background:radial-gradient(circle,rgba(255,190
 .lanterns{position:absolute;inset:0;z-index:2;pointer-events:none;overflow:hidden}
 .lantern{position:absolute;bottom:-70px;font-size:26px;filter:drop-shadow(0 0 16px rgba(255,150,50,.75));animation:rise linear infinite;opacity:.9}
 @keyframes rise{0%{transform:translateY(0) rotate(-3deg)}50%{transform:translateY(-52vh) rotate(3deg)}100%{transform:translateY(-108vh) rotate(-2deg);opacity:0}}
-/* Hanging strings at the sides — uneven, like a real home decorated by hand */
-.hang{position:absolute;top:0;z-index:7;pointer-events:none;font-size:22px;line-height:1.9;text-align:center;filter:drop-shadow(0 0 10px rgba(255,160,50,.45));animation:sway 4s ease-in-out infinite}
-.hang.left{left:10px}.hang.right{right:10px;animation-delay:1.4s}
-/* Handmade frame: a thin gold line inside the edge, slightly imperfect corners */
 #app:before{content:"";position:absolute;inset:10px;z-index:6;pointer-events:none;border:1px solid rgba(233,190,105,.28);border-radius:22px 26px 24px 28px}
 body:not(.night) #app:before{border-color:rgba(180,130,60,.22)}
-/* Warm halo behind the hero diya, so the light feels like it's coming from it */
 .hero-diya{position:relative}
 .hero-diya:after{content:"";position:absolute;inset:-26px -30px;z-index:-1;border-radius:50%;background:radial-gradient(circle,rgba(255,180,70,.55),rgba(255,140,40,.16) 55%,transparent 72%);animation:haloPulse 2.6s ease-in-out infinite}
 @keyframes haloPulse{50%{transform:scale(1.14);opacity:.75}}
-/* Countdown boxes: uneven, hand-set, with a warm glow under the numbers */
 .countdown .cd{border-radius:16px 14px 18px 12px}
 .countdown .cd:nth-child(2){transform:rotate(-.6deg)}
 .countdown .cd:nth-child(3){transform:rotate(.5deg)}
-/* 12. Warmth, in motion — golden dust drifting up in the day, slow breathing glow on cards */
 .dust{position:absolute;inset:0;z-index:1;pointer-events:none;overflow:hidden}
 .dust i{position:absolute;border-radius:50%;background:radial-gradient(circle,#ffdf8a,#ff9e3d);animation:driftUp linear infinite;opacity:.7}
 @keyframes driftUp{0%{transform:translateY(12vh) scale(.7);opacity:0}18%{opacity:.85}100%{transform:translateY(-95vh) scale(1.15);opacity:0}}
@@ -239,17 +200,14 @@ body.night .dust{display:none}
 @keyframes breathe{50%{box-shadow:0 18px 55px rgba(115,65,30,.20),0 0 34px rgba(255,170,60,.14)}}
 body.night .night-card,body.night .blessing-card,body.night .form-card{animation:breatheNight 5s ease-in-out infinite}
 @keyframes breatheNight{50%{box-shadow:0 22px 60px rgba(0,0,0,.5),0 0 38px rgba(255,170,60,.20)}}
-/* Buttons shimmer like light moving across gold */
 .btn{position:relative;overflow:hidden}
 .btn:after{content:"";position:absolute;top:0;left:-70%;width:45%;height:100%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.55),transparent);transform:skewX(-18deg);animation:btnShine 4.5s ease-in-out infinite}
 @keyframes btnShine{0%,72%{left:-70%}92%,100%{left:130%}}
-/* 13. Firecracker button — small, bottom-left, always there */
 #crackerBtn{position:fixed;left:17px;bottom:17px;z-index:20;width:45px;height:45px;border-radius:50%;border:1px solid #d8b77e;background:#fff9ec;color:#9b6339;box-shadow:0 5px 18px rgba(164,109,48,.22);font-size:20px;transition:.25s}
 #crackerBtn:hover{transform:translateY(-3px) scale(1.06)}
 #crackerBtn.playing{animation:crackerShake .45s ease-in-out infinite}
 @keyframes crackerShake{25%{transform:rotate(-7deg) scale(1.08)}75%{transform:rotate(7deg) scale(1.08)}}
 body.night #crackerBtn{background:rgba(28,16,54,.88);color:#ffd98a;border-color:rgba(233,190,105,.55)}
-/* 14. ✨ ALL 5 DIYAS LIT — the sweet Diwali moment. Full-screen golden blessing. */
 .diya-celebration{position:absolute;inset:0;z-index:18;display:flex;align-items:center;justify-content:center;padding:22px;opacity:0;visibility:hidden;pointer-events:none;transition:opacity .6s ease,visibility .6s;background:radial-gradient(ellipse at 50% 30%,rgba(88,32,68,.88),rgba(18,8,32,.94) 70%);backdrop-filter:blur(3px)}
 .diya-celebration.show{opacity:1;visibility:visible;pointer-events:auto}
 .diya-celebration .cele-card{position:relative;width:min(520px,100%);text-align:center;padding:34px 24px 26px;border-radius:30px 26px 32px 24px;border:1px solid rgba(255,205,120,.75);background:linear-gradient(170deg,rgba(66,32,74,.92),rgba(38,16,52,.94));box-shadow:0 30px 80px rgba(0,0,0,.55),0 0 60px rgba(255,170,60,.22),inset 0 1px 0 rgba(255,220,150,.3);transform:scale(.86);transition:transform .6s cubic-bezier(.2,1.4,.3,1);overflow:hidden}
@@ -268,12 +226,22 @@ body.night #crackerBtn{background:rgba(28,16,54,.88);color:#ffd98a;border-color:
 @keyframes celeFall{to{transform:translateY(108vh) rotate(540deg)}}
 #diyaRow.all-lit .diya-btn{animation:flameFlicker .7s ease-in-out infinite}
 #diyaRow.all-lit .diya-btn:nth-child(2){animation-delay:.1s}#diyaRow.all-lit .diya-btn:nth-child(3){animation-delay:.2s}#diyaRow.all-lit .diya-btn:nth-child(4){animation-delay:.3s}#diyaRow.all-lit .diya-btn:nth-child(5){animation-delay:.4s}
+.scroll-hint{cursor:pointer;background:none;border:none;font:600 12px "Cinzel",serif;letter-spacing:3px;text-transform:uppercase;padding:10px 6px;background:linear-gradient(100deg,#b47b31,#e8a83e 40%,#fff0a8 50%,#e8a83e 60%,#b47b31);background-size:200% auto;-webkit-background-clip:text;background-clip:text;color:transparent;animation:shine 3s linear infinite, hintBounce 1.8s ease-in-out infinite}
+.scroll-hint .arrow{display:block;font-size:20px;line-height:1;margin-top:4px}
+@keyframes hintBounce{50%{transform:translateY(6px)}}
+body.night .scroll-hint{background:linear-gradient(100deg,#f3c96f,#ffe9b0 40%,#fff6c9 50%,#ffe9b0 60%,#f3c96f);background-size:200% auto;-webkit-background-clip:text;background-clip:text;color:transparent}
+.shared-overlay{position:absolute;inset:0;z-index:22;display:flex;align-items:center;justify-content:center;padding:22px;opacity:0;visibility:hidden;pointer-events:none;transition:opacity .7s ease,visibility .7s;background:radial-gradient(ellipse at 50% 28%,rgba(88,32,68,.90),rgba(18,8,32,.95) 72%);overflow-y:auto}
+.shared-overlay.show{opacity:1;visibility:visible;pointer-events:auto}
+.shared-overlay .shared-card{position:relative;width:min(560px,100%);margin:auto;text-align:center;padding:36px 26px 28px;border-radius:30px 26px 32px 24px;border:1px solid rgba(255,205,120,.75);background:linear-gradient(170deg,rgba(66,32,74,.94),rgba(38,16,52,.96));box-shadow:0 30px 80px rgba(0,0,0,.55),0 0 60px rgba(255,170,60,.22)}
+.shared-overlay .shared-diyas{font-size:46px;filter:drop-shadow(0 0 20px #ffb62e);animation:float 3s ease-in-out infinite}
+.shared-overlay h2{color:#ffe9b0;margin:8px 0 4px}
+.shared-overlay .shared-big{font:italic 20px "Playfair Display",serif;color:#f0ddba;line-height:1.75;margin:10px auto;max-width:440px;white-space:pre-line}
+.shared-overlay .shared-who{font:600 12px "DM Sans",sans-serif;color:#e8b45a;letter-spacing:1px;margin:14px 0 18px}
 @media(max-width:480px){.toran{font-size:20px}.diya-btn{font-size:32px}.corner-btn{top:10px}.hang{display:none}}
 </style>
 </head>
 <body>
 <div id="app">
-<!-- ★ DAY BY DEFAULT. Top-right always shows the *other* mode: Night in day, Day in night. -->
 <div class="stars" id="stars" aria-hidden="true"></div>
 <div class="shooting" aria-hidden="true"></div>
 <div class="lanterns" id="lanterns" aria-hidden="true"></div>
@@ -285,7 +253,6 @@ body.night #crackerBtn{background:rgba(28,16,54,.88);color:#ffd98a;border-color:
 <div class="dust" id="dust" aria-hidden="true"></div>
 <button id="music" aria-label="Toggle festive sound">🔔</button>
 <button id="crackerBtn" aria-label="Play firecracker sound" title="Firecrackers 🎆">🎆</button>
-
 <section class="screen active" id="intro">
  <div class="screen-inner">
   <div class="eyebrow">A festival of light • joy • new beginnings</div>
@@ -295,7 +262,6 @@ body.night #crackerBtn{background:rgba(28,16,54,.88);color:#ffd98a;border-color:
   <div class="gold-rule"></div>
   <div class="shloka">तमसो मा ज्योतिर्गमय<small>“From darkness, lead me to light.”</small></div>
   <p class="lead" id="introLead">A little light can brighten a thousand hearts. Step into a celebration filled with warmth, blessings and magic.</p>
-  <!-- ★ NEW: live countdown -->
   <div><div class="countdown-label" id="cdLabel">✦ COUNTING DOWN TO DIWALI • 8 NOV 2026 ✦</div>
   <div class="countdown" id="countdown" style="margin-top:8px">
     <div class="cd"><b id="cdD">--</b><span>Days</span></div>
@@ -305,12 +271,12 @@ body.night #crackerBtn{background:rgba(28,16,54,.88);color:#ffd98a;border-color:
   </div></div>
   <div class="shared-welcome" id="sharedWelcome"><div class="shared-kicker">A PERSONAL DIWALI MESSAGE FOR YOU</div><h3 id="sharedTitle">Happy Diwali!</h3><p id="sharedMessage"></p><div class="shared-from" id="sharedFrom"></div></div>
   <button class="btn" id="begin">LET THE MAGIC BEGIN ✨</button>
+  <button class="scroll-hint" id="scrollHint" type="button">Scroll down to enjoy the Diwali<span class="arrow">↓</span></button>
   <div class="credit">Made with <b>❤️</b> for Diwali • Share the light 🪔</div>
  </div>
  <div class="intro-bottom">A SPECIAL CELEBRATION AWAITS YOU</div>
  <div class="lamp-row"><span>🪔</span><span>🪔</span><span>🪔</span><span>🪔</span><span>🪔</span></div>
 </section>
-
 <section class="screen" id="gateScreen">
  <div class="screen-inner">
   <div class="eyebrow">The sacred doors await</div>
@@ -327,7 +293,6 @@ body.night #crackerBtn{background:rgba(28,16,54,.88);color:#ffd98a;border-color:
   <div class="step"><i class="on"></i><i></i><i></i><i></i><i></i></div>
  </div>
 </section>
-
 <section class="screen" id="reveal">
  <div class="screen-inner">
   <div class="eyebrow">With divine blessings</div>
@@ -385,13 +350,11 @@ body.night #crackerBtn{background:rgba(28,16,54,.88);color:#ffd98a;border-color:
  </div>
  <div class="lamp-row"><span>🪔</span><span>🌸</span><span>🪔</span><span>🌸</span><span>🪔</span></div>
 </section>
-
 <section class="screen" id="blessing">
  <div class="screen-inner">
   <div class="eyebrow">A blessing for your journey</div>
   <h2>A little wish, from the heart</h2>
   <div class="blessing-card"><p id="wish">May your home be filled with warmth, your heart with peace, and your days with endless reasons to smile.</p></div>
-  <!-- ★ NEW: Light-a-Diya — tap each diya, light all 5 for fireworks -->
   <div class="light-diyas">
     <p>🪔 Tap a diya to light it — light all 5 and watch the sky celebrate!</p>
     <div class="diya-row" id="diyaRow">
@@ -411,7 +374,6 @@ body.night #crackerBtn{background:rgba(28,16,54,.88);color:#ffd98a;border-color:
   <div class="step"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i></div>
  </div>
 </section>
-
 <section class="screen" id="nightSky">
  <div class="screen-inner">
   <div class="eyebrow">A little wonder, just for you</div>
@@ -431,7 +393,6 @@ body.night #crackerBtn{background:rgba(28,16,54,.88);color:#ffd98a;border-color:
   <div class="step"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></div>
  </div>
 </section>
-
 <section class="screen" id="personal">
  <div class="screen-inner">
   <div class="eyebrow">Pass the light forward</div>
@@ -456,8 +417,6 @@ body.night #crackerBtn{background:rgba(28,16,54,.88);color:#ffd98a;border-color:
   <div class="step"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></div>
  </div>
 </section>
-
-<!-- ★ ALL 5 DIYAS LIT — full-screen sweet Diwali moment -->
 <div class="diya-celebration" id="diyaCelebration" role="dialog" aria-label="All diyas lit celebration">
   <div class="cele-shower" id="celeShower" aria-hidden="true"></div>
   <div class="cele-card">
@@ -474,15 +433,24 @@ body.night #crackerBtn{background:rgba(28,16,54,.88);color:#ffd98a;border-color:
   </div>
 </div>
 </div>
+<div class="shared-overlay" id="sharedOverlay" role="dialog" aria-label="Your personal Diwali wish">
+  <div class="shared-card">
+    <div class="shared-diyas" aria-hidden="true">🪔 ✨ 🪔</div>
+    <div class="eyebrow" style="margin-top:10px">A PERSONAL DIWALI MESSAGE FOR YOU</div>
+    <h2 id="overlayTitle">Happy Diwali!</h2>
+    <p class="shared-big" id="overlayMessage"></p>
+    <div class="shared-who" id="overlayFrom"></div>
+    <button class="btn" id="overlayExplore">EXPLORE YOUR DIWALI ✨</button>
+    <button class="scroll-hint" id="overlayScroll" type="button" style="display:block;margin:6px auto 0">Scroll down to enjoy the Diwali<span class="arrow">↓</span></button>
+  </div>
+</div>
 <div class="toast" id="toast"></div>
-
 <script>
 "use strict";
 const $=id=>document.getElementById(id);
 const screens=["intro","gateScreen","reveal","blessing","nightSky","personal"];
 function go(id){screens.forEach(s=>$(s).classList.toggle("active",s===id));}
 function toast(t){$("toast").textContent=t;$("toast").classList.add("show");setTimeout(()=>$("toast").classList.remove("show"),2300);}
-
 let audio=null,soundEnabled=true;
 function chime(){
  if(!soundEnabled)return;
@@ -501,7 +469,6 @@ function chime(){
  }catch(e){}
 }
 $("music").onclick=()=>{soundEnabled=!soundEnabled;$("music").textContent=soundEnabled?"🔔":"🔕";if(soundEnabled)chime();};
-
 const canvas=$("fx"),ctx=canvas.getContext("2d");
 let W=0,H=0,parts=[],rockets=[];
 const palette=["#f6c86e","#ee9365","#e77c9b","#a9c9e8","#d5a5d7","#fff0bf"];
@@ -568,7 +535,6 @@ let skyWishIndex=0;
 $("makeWish").onclick=()=>{skyWishIndex=(skyWishIndex+1)%skyWishes.length;$("skyWish").textContent=skyWishes[skyWishIndex];burst(W/2,H*.42,1.25);celebration(6);chime();};
 $("blessingToPersonal").onclick=()=>{stopFireworks();go("personal");chime();};
 $("skyToPersonal").onclick=()=>{stopFireworks();go("personal");chime();};
-
 let senderName="",receiverName="",message="";
 $("createWish").onclick=()=>{
  senderName=$("sender").value.trim();receiverName=$("receiver").value.trim();
@@ -594,11 +560,11 @@ async function copy(text){
 }
 function getWhatsAppMessage(){
  const url=shareUrl();
- return `🪔✨ Wishing you and your family a very Happy Diwali! ✨🪔
+ return `✨🎉 Wishing you and your family a very Happy Diwali! 🎉✨
 
-May this festival of lights fill your life with happiness, prosperity, peace and endless blessings. ❤️
+May this festival of lights fill your life with happiness, prosperity, peace and endless blessings. ❤️🙏
 
-Here's a little Diwali surprise for you! 🎆
+Here's a little Diwali surprise for you!
 
 ${url}`;
 }
@@ -628,20 +594,32 @@ Wishing you and your family a beautiful Happy Diwali!
 
 With warm wishes,
 ${d.s}`;
-  $("sharedTitle").textContent=`Happy Diwali, ${d.r}! 🪔`;
+  $("sharedTitle").textContent=`Happy Diwali, ${d.r}!`;
   $("sharedMessage").textContent=message.split("\n\n").slice(1,2)[0] || "May your home be filled with prosperity, peace and happiness.";
   $("sharedFrom").textContent=`A heartfelt wish from ${d.s}`;
   $("sharedWelcome").classList.add("show");
   $("begin").textContent="EXPLORE YOUR DIWALI SURPRISE ✨";
-  $("sender").value=d.s;$("receiver").value=d.r;
-  $("resultTitle").textContent=`Happy Diwali, ${d.r}! 🪔`;
-  $("resultText").textContent=message.split("\n\n").slice(1,2)[0] || "May your home be filled with prosperity, peace and happiness.";
-  $("resultFrom").textContent=`A warm wish from ${d.s}`;
-  $("result").classList.add("show");
+  $("overlayTitle").textContent=`Happy Diwali, ${d.r}!`;
+  $("overlayMessage").textContent=message.split("\n\n").slice(1,2)[0] || "May your home be filled with prosperity, peace and happiness.";
+  $("overlayFrom").textContent=`With love, from ${d.s}  •  Scroll down to enjoy the Diwali`;
+  $("sharedOverlay").classList.add("show");
+  $("sender").value=d.r;$("receiver").value="";
+  $("receiver").placeholder="Who do you want to wish next?";
+  $("result").classList.remove("show");
  }catch(e){console.warn("This Diwali greeting link could not be read.",e);}
 }
 loadShared();
-
+function enterFromWish(){ $("sharedOverlay").classList.remove("show"); chime(); celebration(6); go("intro"); }
+$("overlayExplore").onclick=enterFromWish;
+$("overlayScroll").onclick=enterFromWish;
+$("sharedOverlay").onclick=(e)=>{ if(e.target===$("sharedOverlay")) enterFromWish(); };
+$("scrollHint").onclick=()=>{ chime(); go("gateScreen"); };
+let lastWheel=0;
+document.addEventListener("wheel",(e)=>{
+  if(!$("intro").classList.contains("active") || e.deltaY<40) return;
+  const now=Date.now(); if(now-lastWheel<1200) return; lastWheel=now;
+  chime(); go("gateScreen");
+},{passive:true});
 for(let i=0;i<22;i++){
  const p=document.createElement("i");p.className="petal";
  p.style.left=Math.random()*100+"%";
@@ -650,9 +628,6 @@ for(let i=0;i<22;i++){
  p.style.opacity=.25+Math.random()*.5;
  $("petals").appendChild(p);
 }
-
-/* ============ ★ NEW FEATURES ============ */
-/* A. Live countdown to Diwali — 8 Nov 2026, IST */
 (function(){
   const target=new Date("2026-11-08T00:00:00+05:30").getTime();
   function tick(){
@@ -665,15 +640,12 @@ for(let i=0;i<22;i++){
   }
   tick(); setInterval(tick,1000);
 })();
-/* B. Day / Night — DAY is home. Button always shows the *other* mode, and it
-   loops forever: Day → tap 🌙 Night → tap ☀️ Day → tap 🌙 Night … */
 $("nightToggle").onclick=()=>{
   const night=document.body.classList.toggle("night");
   $("nightToggle").textContent=night?"☀️ Day":"🌙 Night";
   toast(night?"Welcome to Diwali night — the diyas glow best here ✨":"Good morning, Diwali! Warm daylight is back ☀️");
   if(night) burst(W/2,H*.3,1);
 };
-/* C. Hindi / English toggle */
 let hindi=false;
 const enLead="A little light can brighten a thousand hearts. Step into a celebration filled with warmth, blessings and magic.";
 const hiLead="एक छोटा सा दीया हज़ारों दिलों को रोशन कर सकता है। आइए, इस उत्सव में गर्मजोशी, आशीर्वाद और जादू का आनंद लें।";
@@ -684,7 +656,6 @@ $("langToggle").onclick=()=>{
   $("begin").textContent=hindi?"जादू शुरू करें ✨":"LET THE MAGIC BEGIN ✨";
   toast(hindi?"शुभ दीपावली! 🙏":"Happy Diwali! 🪔");
 };
-/* D. Light-a-Diya — tap to light, all 5 = the big sweet moment */
 let litCount=0, allLit=false;
 document.querySelectorAll(".diya-btn").forEach(btn=>{
   btn.onclick=(e)=>{
@@ -696,7 +667,6 @@ document.querySelectorAll(".diya-btn").forEach(btn=>{
     if(litCount===5 && !allLit){ allLit=true; $("diyaRow").classList.add("all-lit"); showDiyaCelebration(); }
   };
 });
-/* D2. The moment all 5 are lit — golden shower, fireworks, crackers, blessing */
 function showDiyaCelebration(){
   celebration(14);
   setTimeout(()=>celebration(8), 900);
@@ -715,19 +685,15 @@ function showDiyaCelebration(){
 }
 $("celeClose").onclick=()=>{ $("diyaCelebration").classList.remove("show"); };
 $("celeShare").onclick=()=>{ $("diyaCelebration").classList.remove("show"); stopFireworks(); go("personal"); chime(); };
-/* E. Tap anywhere for a sparkle (not on buttons / inputs) */
 document.addEventListener("click",e=>{
   if(e.target.closest("button,input,a")) return;
   burst(e.clientX,e.clientY,.35);
 });
-/* F. Copy Link button — separate from WhatsApp, for Instagram / SMS / anywhere */
 const copyLinkBtn=$("copyLink");
 if(copyLinkBtn) copyLinkBtn.onclick=async()=>{
   if(!senderName||!receiverName){toast("Create your personal wish first");return;}
   await copy(shareUrl()); toast("Link copied! Paste it anywhere 🔗");
 };
-/* G. The living night sky — 90 uneven twinkling stars + 5 slow sky lanterns.
-   Random sizes / delays on purpose: a real sky is never perfectly even. */
 (function(){
   const sky=$("stars"); if(!sky) return;
   for(let i=0;i<90;i++){
@@ -742,18 +708,10 @@ if(copyLinkBtn) copyLinkBtn.onclick=async()=>{
     const l=document.createElement("span"); l.className="lantern"; l.textContent=i%2?"🏮":"🪔";
     l.style.cssText=`left:${left}%;font-size:${20+Math.random()*14}px;animation-duration:${26+Math.random()*22}s;animation-delay:${-Math.random()*30}s`;
     lan.appendChild(l);
-  }
-  );
+  });
 })();
-/* H. Gentle fireworks on the first screen — the sky should feel alive the
-   second it opens, not empty until you click. */
 setInterval(()=>{ if($("intro").classList.contains("active") && Math.random()<.6) launch(); },4200);
 setTimeout(()=>{ celebration(5); playCrackers(); },900);
-/* I. 🎆 FIRECRACKER SOUND — made with code, no audio file needed, so it still
-   works on GitHub Pages as one single HTML file.
-   Honest note baked into the code: browsers block sound until the user has
-   tapped the page once. So we try on open, AND we play it on the very first
-   tap anywhere, AND the 🎆 button replays it whenever you want. */
 let crackersPlayed=false;
 function ensureAudio(){
   try{
@@ -764,19 +722,17 @@ function ensureAudio(){
 }
 function playCrackers(ms=2600){
   const ac=ensureAudio(); if(!ac) return;
-  if(ac.state==="suspended"){ /* will retry on first tap */ return; }
+  if(ac.state==="suspended"){ return; }
   crackersPlayed=true;
   const btn=$("crackerBtn"); if(btn) btn.classList.add("playing");
   setTimeout(()=>{ if(btn) btn.classList.remove("playing"); }, ms);
   const t0=ac.currentTime;
-  // 1) Deep boom at the start, like a big anaar going off
   try{
     const o=ac.createOscillator(), g=ac.createGain();
     o.type="sine"; o.frequency.setValueAtTime(120,t0); o.frequency.exponentialRampToValueAtTime(38,t0+.35);
     g.gain.setValueAtTime(.28,t0); g.gain.exponentialRampToValueAtTime(.001,t0+.4);
     o.connect(g).connect(ac.destination); o.start(t0); o.stop(t0+.42);
   }catch(e){}
-  // 2) Random pops + crackle for ~2.6 seconds — a string of phuljharis
   const dur=ms/1000, pops=42;
   for(let i=0;i<pops;i++){
     const t=t0+.08+Math.random()*dur;
@@ -789,7 +745,6 @@ function playCrackers(ms=2600){
     const g=ac.createGain(); g.gain.setValueAtTime(.12+Math.random()*.16,t); g.gain.exponentialRampToValueAtTime(.001,t+len);
     src.connect(f).connect(g).connect(ac.destination); src.start(t);
   }
-  // 3) A soft continuous crackle underneath
   try{
     const len=dur, buf=ac.createBuffer(1, Math.floor(ac.sampleRate*len), ac.sampleRate);
     const d=buf.getChannelData(0);
@@ -801,12 +756,10 @@ function playCrackers(ms=2600){
   }catch(e){}
 }
 $("crackerBtn").onclick=()=>{ playCrackers(2600); celebration(6); toast("🎆 Phataak! Happy Diwali!"); };
-/* First tap anywhere: if the opening sound was blocked, play it then. */
 document.addEventListener("pointerdown", function firstTap(){
   if(!crackersPlayed) playCrackers(2600);
   document.removeEventListener("pointerdown", firstTap);
 });
-/* J. Golden dust in the day — warm specks drifting up like light in the air */
 (function(){
   const dust=$("dust"); if(!dust) return;
   for(let i=0;i<16;i++){
