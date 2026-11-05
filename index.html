@@ -803,8 +803,13 @@ const igBtn=$("shareInstagram");
 if(igBtn) igBtn.onclick=async()=>{
   if(!senderName||!receiverName){toast("Create your personal wish first");return;}
   await copy(getInstagramMessage());
-  toast("Wish copied! Paste it in an Instagram DM or Story 📸");
-  setTimeout(()=>window.open("https://www.instagram.com/","_blank"), 600);
+  toast("Wish copied! DM inbox khul raha hai — kisi ko choose karke paste karo 📸");
+  /* FIX: pehle https://www.instagram.com/ khulta tha — woh hamesha home hi kholta hai.
+     /direct/inbox/ DM inbox kholta hai. Instagram kisi website ko kisi ek
+     specific person ka DM directly kholne nahi deta (uske liye username
+     chahiye hota hai, jo yahan nahi hai), isliye inbox tak hi ja sakte hain —
+     wahan person choose karo, paste karo, send. */
+  setTimeout(()=>window.open("https://www.instagram.com/direct/inbox/","_blank"), 600);
 };
 /* G. The living night sky — 90 uneven twinkling stars + 5 slow sky lanterns.
    Random sizes / delays on purpose: a real sky is never perfectly even. */
